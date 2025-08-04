@@ -4,7 +4,7 @@ from PIL import Image
 # Page configuration
 st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔧", layout="centered")
 
-# Apply custom styles
+# Custom CSS for styling
 def set_custom_style():
     st.markdown("""
         <style>
@@ -16,6 +16,19 @@ def set_custom_style():
             }
             h1, h2, h3 {
                 color: #1a237e;
+            }
+            .centered-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .profile-img {
+                border: 3px solid #1a237e;
+                border-radius: 12px;
+                width: 220px;
+                height: auto;
+                margin-top: 20px;
+                margin-bottom: 10px;
             }
             .title {
                 text-align: center;
@@ -39,32 +52,20 @@ def set_custom_style():
                 color: #1a73e8;
                 text-decoration: none;
             }
-            .profile-wrapper {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0;
-            }
-            .profile-img {
-                border: 3px solid #1a237e;
-                border-radius: 12px;
-                width: 220px;
-            }
         </style>
     """, unsafe_allow_html=True)
 
-# Load styles
+# Apply styles
 set_custom_style()
 
-# Centered profile image without margin
+# Centered image using HTML+CSS
 try:
     image = Image.open("assests/faizan.jpeg")
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.image(image, width=220, use_container_width=False)
-        st.markdown('<style>img { border: 3px solid #1a237e; border-radius: 12px; }</style>', unsafe_allow_html=True)
+    st.markdown('<div class="centered-container">', unsafe_allow_html=True)
+    st.image(image, width=220)
+    st.markdown('</div>', unsafe_allow_html=True)
 except FileNotFoundError:
-    st.warning("Profile image not found. Please place it in `assests/faizan.jpeg`.")
+    st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
 
 # Name and title
 st.markdown('<div class="title">Faizan Ali</div>', unsafe_allow_html=True)
@@ -78,6 +79,9 @@ st.markdown("""
     📞 +49 15256046716
 </div>
 """, unsafe_allow_html=True)
+
+st.markdown("---")
+
 
 st.markdown("---")
 
