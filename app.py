@@ -17,14 +17,18 @@ def set_custom_style():
             h1, h2, h3 {
                 color: #1a237e;
             }
+            .profile-pic-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
             .profile-pic {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
                 border: 3px solid #1a237e;
                 border-radius: 12px;
-                width: 180px;
-                margin-bottom: 1rem;
+                width: 220px;
+                height: auto;
+                object-fit: cover;
             }
             .title {
                 text-align: center;
@@ -54,12 +58,14 @@ def set_custom_style():
 # Apply styles
 set_custom_style()
 
-# Centered profile image
+# Profile image section
+st.markdown('<div class="profile-pic-container">', unsafe_allow_html=True)
 try:
-    image = Image.open("assests/faizan.jpeg")  # Replace with actual path
-    st.image(image, use_column_width=False, caption="", output_format='auto', width=180)
+    image = Image.open("assets/faizan.jpg")
+    st.image(image, use_column_width=False, width=220)
 except FileNotFoundError:
     st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Name and title
 st.markdown('<div class="title">Faizan Ali</div>', unsafe_allow_html=True)
@@ -76,7 +82,7 @@ st.markdown("""
 
 st.markdown("---")
 
-# Example next section
+# About section (continue your content)
 st.header("About Me")
 st.write("""
 I am a **Metallurgical Engineer** with international academic and industry experience in **non-destructive testing**, **material inspection**, and **steelmaking optimization**.
@@ -84,7 +90,6 @@ I am a **Metallurgical Engineer** with international academic and industry exper
 Born in **Hunza, Pakistan** and currently based in **Germany**, I specialize in **thermophysical modeling** and applying modern engineering tools to improve material reliability and production processes.
 """)
 
-# ... (Continue with other sections: Education, Experience, Projects, etc.)
 
 
 st.markdown("---")
