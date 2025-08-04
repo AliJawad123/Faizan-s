@@ -23,12 +23,15 @@ def set_custom_style():
                 align-items: center;
                 margin-bottom: 1rem;
             }
-            .profile-pic {
-                border: 3px solid #1a237e;
-                border-radius: 12px;
-                width: 100px;
-                height: 100px;
-                object-fit: cover;
+            .contact-row {
+                text-align: center;
+                font-size: 15px;
+                color: #374151;
+                margin-bottom: 2rem;
+            }
+            .contact-row a {
+                color: #1a73e8;
+                text-decoration: none;
             }
             .title {
                 text-align: center;
@@ -42,27 +45,17 @@ def set_custom_style():
                 color: #374151;
                 margin-bottom: 1rem;
             }
-            .contact-row {
-                text-align: center;
-                font-size: 15px;
-                color: #374151;
-                margin-bottom: 2rem;
-            }
-            .contact-row a {
-                color: #1a73e8;
-                text-decoration: none;
-            }
         </style>
     """, unsafe_allow_html=True)
 
 # Apply styles
 set_custom_style()
 
-# Profile image section
+# Display centered image with proper width
 st.markdown('<div class="profile-pic-container">', unsafe_allow_html=True)
 try:
-    image = Image.open("assests/faizan.jpeg")
-    st.image(image, use_column_width=False, width=100)
+    image = Image.open("assets/faizan.jpg")
+    st.image(image, width=220, use_container_width=False)  # Corrected: no deprecated parameter
 except FileNotFoundError:
     st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
 st.markdown('</div>', unsafe_allow_html=True)
@@ -79,20 +72,6 @@ st.markdown("""
     📞 +49 15256046716
 </div>
 """, unsafe_allow_html=True)
-
-st.markdown("---")
-
-# About section (continue your content)
-st.header("About Me")
-st.write("""
-I am a **Metallurgical Engineer** with international academic and industry experience in **non-destructive testing**, **material inspection**, and **steelmaking optimization**.
-
-Born in **Hunza, Pakistan** and currently based in **Germany**, I specialize in **thermophysical modeling** and applying modern engineering tools to improve material reliability and production processes.
-""")
-
-
-
-st.markdown("---")
 
 # About Me
 st.header("About Me")
