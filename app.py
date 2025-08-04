@@ -4,14 +4,14 @@ from PIL import Image
 # Page configuration
 st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔧", layout="centered")
 
-# Custom CSS for the page
+# Apply custom styles
 def set_custom_style():
     st.markdown("""
         <style>
             .stApp {
                 background: linear-gradient(135deg, #f1f5f9, #e2ecf8);
                 font-family: 'Segoe UI', sans-serif;
-                padding: 2rem;
+                padding: 0;
                 color: #1f2937;
             }
             h1, h2, h3 {
@@ -39,29 +39,32 @@ def set_custom_style():
                 color: #1a73e8;
                 text-decoration: none;
             }
-            .rounded-border {
+            .profile-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+            }
+            .profile-img {
                 border: 3px solid #1a237e;
                 border-radius: 12px;
-                padding: 6px;
-                background-color: white;
-                display: inline-block;
+                width: 220px;
             }
         </style>
     """, unsafe_allow_html=True)
 
-# Apply styles
+# Load styles
 set_custom_style()
 
-# Centered profile image with border using Streamlit columns
+# Centered profile image without margin
 try:
-    image = Image.open("assests/faizan.jpeg")
+    image = Image.open("assets/faizan.jpg")
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.markdown('<div class="rounded-border">', unsafe_allow_html=True)
         st.image(image, width=220, use_container_width=False)
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('<style>img { border: 3px solid #1a237e; border-radius: 12px; }</style>', unsafe_allow_html=True)
 except FileNotFoundError:
-    st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
+    st.warning("Profile image not found. Please place it in `assests/faizan.jpeg`.")
 
 # Name and title
 st.markdown('<div class="title">Faizan Ali</div>', unsafe_allow_html=True)
