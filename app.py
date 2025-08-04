@@ -1,10 +1,10 @@
 import streamlit as st
 from PIL import Image
 
-# Set page configuration
+# Page configuration
 st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔧", layout="centered")
 
-# Apply custom CSS
+# Inject custom CSS for styling
 def set_custom_style():
     st.markdown("""
         <style>
@@ -17,31 +17,75 @@ def set_custom_style():
             h1, h2, h3 {
                 color: #1a237e;
             }
-            .stMarkdown p {
-                font-size: 17px;
-                line-height: 1.6;
+            .profile-pic {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border: 3px solid #1a237e;
+                border-radius: 12px;
+                width: 180px;
+                margin-bottom: 1rem;
             }
-            .css-zt5igj {
-                font-size: 18px;
-                font-weight: 500;
+            .title {
+                text-align: center;
+                font-size: 32px;
+                font-weight: bold;
+                margin-bottom: 0.2rem;
             }
-            hr {
-                border-top: 1px solid #cbd5e1;
+            .subtitle {
+                text-align: center;
+                font-size: 20px;
+                color: #374151;
+                margin-bottom: 1rem;
+            }
+            .contact-row {
+                text-align: center;
+                font-size: 15px;
+                color: #374151;
+                margin-bottom: 2rem;
+            }
+            .contact-row a {
+                color: #1a73e8;
+                text-decoration: none;
             }
         </style>
     """, unsafe_allow_html=True)
 
+# Apply styles
 set_custom_style()
 
-# Header: Profile Picture, Name, Title
-col1, col2 = st.columns([1, 3])
-with col1:
-    image = Image.open("assests/faizan.jpeg")  # Ensure this image exists
-    st.image(image, width=180)
-with col2:
-    st.title("Faizan Ali")
-    st.subheader("Metallurgical Engineer | Materials Testing & Quality Control")
-    st.markdown("📍 Freiberg, Germany | 📧 faizanalidram@gmail.com | 📞 +49 15256046716")
+# Centered profile image
+try:
+    image = Image.open("assets/faizan.jpg")  # Replace with actual path
+    st.image(image, use_column_width=False, caption="", output_format='auto', width=180)
+except FileNotFoundError:
+    st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
+
+# Name and title
+st.markdown('<div class="title">Faizan Ali</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Metallurgical Engineer | Materials Testing & Quality Control</div>', unsafe_allow_html=True)
+
+# Contact Info
+st.markdown("""
+<div class="contact-row">
+    📍 Freiberg, Germany | 
+    📧 <a href="mailto:faizanalidram@gmail.com">faizanalidram@gmail.com</a> | 
+    📞 +49 15256046716
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("---")
+
+# Example next section
+st.header("About Me")
+st.write("""
+I am a **Metallurgical Engineer** with international academic and industry experience in **non-destructive testing**, **material inspection**, and **steelmaking optimization**.
+
+Born in **Hunza, Pakistan** and currently based in **Germany**, I specialize in **thermophysical modeling** and applying modern engineering tools to improve material reliability and production processes.
+""")
+
+# ... (Continue with other sections: Education, Experience, Projects, etc.)
+
 
 st.markdown("---")
 
