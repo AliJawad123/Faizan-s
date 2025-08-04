@@ -56,7 +56,7 @@ set_custom_style()
 
 # Centered profile image
 try:
-    image = Image.open("assets/faizan.jpg")  # Replace with actual path
+    image = Image.open("assests/faizan.jpeg")  # Replace with actual path
     st.image(image, use_column_width=False, caption="", output_format='auto', width=180)
 except FileNotFoundError:
     st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
