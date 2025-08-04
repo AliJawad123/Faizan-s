@@ -45,7 +45,7 @@ set_custom_style()
 # Header section
 col1, col2 = st.columns([1, 3])
 with col1:
-    st.markdown('<img src="assests/faizan.jpg" class="profile-pic" width="180">', unsafe_allow_html=True)
+    st.markdown('<img src="assests/faizan.jpeg" class="profile-pic" width="180">', unsafe_allow_html=True)
 with col2:
     st.title("Faizan Ali")
     st.subheader("Metallurgical Engineer | Materials Testing & Quality Control")
