@@ -58,7 +58,7 @@ set_custom_style()
 
 # Centered profile image without margin
 try:
-    image = Image.open("assets/faizan.jpg")
+    image = Image.open("assests/faizan.jpeg")
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.image(image, width=220, use_container_width=False)
