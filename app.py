@@ -1,6 +1,4 @@
 import streamlit as st
-from PIL import Image
-import base64
 
 # Custom background with CSS
 def set_bg():
@@ -31,10 +29,6 @@ set_bg()
 
 # Page setup
 st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔩", layout="centered")
-
-# Profile image
-image = Image.open("assets/faizan.JPG")  # Replace with actual image
-st.image(image, width=180)
 
 # Name and Title
 st.title("Faizan Ali")
@@ -110,4 +104,3 @@ st.markdown("""
 
 st.markdown("---")
 st.caption("Crafted with 🔧 by Faizan Ali using Streamlit | Updated 2025")
-
