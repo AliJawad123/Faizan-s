@@ -54,7 +54,7 @@ set_custom_style()
 
 # Centered profile image with border using Streamlit columns
 try:
-    image = Image.open("assets/faizan.jpg")
+    image = Image.open("assests/faizan.jpeg")
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown('<div class="rounded-border">', unsafe_allow_html=True)
