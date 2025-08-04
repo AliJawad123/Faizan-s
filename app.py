@@ -77,6 +77,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("---")
+
+# Add additional sections here...
+
+
+st.markdown("---")
 # About Me
 st.header("About Me")
 st.write("""
