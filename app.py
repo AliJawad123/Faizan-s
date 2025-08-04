@@ -1,20 +1,21 @@
 import streamlit as st
+from PIL import Image
 
 # Set page configuration
-st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔩", layout="centered")
+st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔧", layout="centered")
 
-# Inject CSS for a modern, professional look
+# Apply custom CSS
 def set_custom_style():
     st.markdown("""
         <style>
             .stApp {
-                background: linear-gradient(135deg, #e6f0ff, #f7faff);
+                background: linear-gradient(135deg, #f1f5f9, #e2ecf8);
                 font-family: 'Segoe UI', sans-serif;
                 padding: 2rem;
                 color: #1f2937;
             }
             h1, h2, h3 {
-                color: #003366;
+                color: #1a237e;
             }
             .stMarkdown p {
                 font-size: 17px;
@@ -30,78 +31,86 @@ def set_custom_style():
         </style>
     """, unsafe_allow_html=True)
 
-# Apply style
 set_custom_style()
 
-# Title & contact
-st.title("Faizan Ali")
-st.subheader("Metallurgical Engineer | Materials Specialist | NDT Certified")
-st.markdown("📍 Freiberg, Germany | 📧 faizanalidram@gmail.com | 📞 +49 15256046716")
+# Header: Profile Picture, Name, Title
+col1, col2 = st.columns([1, 3])
+with col1:
+    image = Image.open("assets/faizan.jpeg")  # Ensure this image exists
+    st.image(image, width=180)
+with col2:
+    st.title("Faizan Ali")
+    st.subheader("Metallurgical Engineer | Materials Testing & Quality Control")
+    st.markdown("📍 Freiberg, Germany | 📧 faizanalidram@gmail.com | 📞 +49 15256046716")
+
 st.markdown("---")
 
 # About Me
-st.header("👋 About Me")
+st.header("About Me")
 st.write("""
-I’m **Faizan Ali**, a passionate **Metallurgical Engineer** with hands-on experience in **non-destructive testing**, **steelmaking processes**, and **thermophysical property analysis**.
+I am a **dedicated Metallurgical Engineer** with academic training and international work experience in **materials inspection, NDT techniques, and steelmaking processes**.  
+Originating from **Hunza, Pakistan**, and currently pursuing a Master’s degree in **Metallic Materials Technology** in **Freiberg, Germany**, I focus on applying scientific principles to enhance material performance and process reliability in the metallurgical industry.
 
-Born in **Hunza, Pakistan** and now based in **Freiberg, Germany**, I aim to contribute to innovative solutions that drive efficiency and quality in material science and production processes.
+My professional interest lies at the intersection of **material integrity, thermodynamic modeling**, and **process optimization**, and I am motivated to contribute to technically rigorous, safety-conscious, and quality-driven teams.
 """)
 
 # Education
-st.header("🎓 Education")
+st.header("Education")
 st.markdown("""
 **M.Sc. Metallic Materials Technology**  
-📍 Technical University Bergakademie Freiberg, Germany (2021–2025)  
-*Thesis:* Measurement of Thermophysical Properties of EAF Slag
+📍 Technical University Bergakademie Freiberg, Germany (2021 – 2025)  
+*Thesis:* Measurement of Thermophysical Properties of EAF Slag  
 
 **B.E. Metallurgical Engineering**  
-📍 NED University of Engineering & Technology, Karachi, Pakistan (2015–2019)  
-*Thesis:* FeO Reduction in EAF Slag to Improve Steelmaking Efficiency
+📍 NED University of Engineering & Technology, Karachi, Pakistan (2015 – 2019)  
+*Thesis:* Optimization of FeO Reduction in EAF Slag for Steel Quality Improvement
 """)
 
 # Work Experience
-st.header("💼 Work Experience")
+st.header("Professional Experience")
 st.markdown("""
 **Werkstudent – Ringoplast Leubsdorf GmbH** *(Jul 2024 – Sep 2024)*  
-**Intern – Helmholtz Institute Freiberg** *(Feb 2024 – May 2024)*  
-**Werkstudent – Hitachi GmbH** *(Aug 2022 – Nov 2022)*  
-**Trainee Engineer – NDT Premier Tubular Inspection Services** *(Jan 2021 – Mar 2021)*
+**Intern – Helmholtz Institute Freiberg for Resource Technology** *(Feb 2024 – May 2024)*  
+**Werkstudent – Hitachi GmbH, Roßen, Germany** *(Aug 2022 – Nov 2022)*  
+**Trainee Engineer – NDT Premier Tubular Inspection Services, Karachi** *(Jan 2021 – Mar 2021)*
 """)
 
 # Technical Skills
-st.header("🛠️ Technical Skills")
+st.header("Technical Skills")
 st.markdown("""
-- **Material Testing & Inspection:** NDT, Metallography, Visual & Ultrasonic Testing  
-- **Software & Tools:** SolidWorks, AutoCAD, FACTSAGE, HSC Chemistry, Origin, MS Office  
-- **Steelmaking Processes:** EAF slag modeling, refining techniques, thermodynamic analysis  
+- **Material Testing & Inspection:** NDT, Visual/Ultrasonic Testing, Metallography  
+- **Process Modeling Tools:** FACTSAGE, HSC Chemistry, OriginLab  
+- **CAD & Design:** SolidWorks, AutoCAD, Solid Edge  
+- **Software Proficiency:** MS Office Suite, Report Documentation, Data Analysis  
+- **Metallurgical Knowledge:** Steelmaking, Thermodynamics, Corrosion Protection  
 - **Languages:** English (C1), German (B1), Urdu (Native)
 """)
 
-# Key Projects
-st.header("📌 Projects & Research")
+# Projects
+st.header("Projects & Research Work")
 st.markdown("""
-- **EAF Slag Viscosity Modeling:** Simulated high-temp slag behavior using FACTSAGE and Origin.  
-- **FeO Content Reduction Techniques:** Improved slag quality and process efficiency in steelmaking.  
-- **Ultrasonic Testing & Metallography:** Assessed material integrity of casing joints and high-pressure pumps.  
-- **Metals Recovery Thermodynamics:** Evaluated recovery using simulation tools like HSC Chemistry.
+- **Thermophysical Modeling of EAF Slag:** Measured and modeled viscosity, surface tension, and density of slag at high temperatures using FACTSAGE and the Einstein-Roscoe equation.  
+- **Optimization of FeO Reduction:** Investigated refining techniques and chemical control methods to minimize FeO in slag and improve steel purity.  
+- **Casing Joint Inspections:** Performed ultrasonic and visual NDT inspections to ensure equipment reliability and safety.  
+- **Metals Recovery Analysis:** Contributed to simulations of metal extraction using thermodynamic software tools.
 """)
 
 # Certifications
-st.header("📜 Certifications")
+st.header("Certifications")
 st.markdown("""
 - Community Emergency Response Team (CERT)  
 - First Aid and Casualty Handling  
-- Occupational Health & Safety Training  
-- Firefighting Procedures
+- Fire Safety & Evacuation Procedures  
+- Occupational Health and Safety Training
 """)
 
-# Contact Info
-st.header("📫 Contact & Profiles")
+# Contact
+st.header("Contact & Links")
 st.markdown("""
-- ✉️ Email: faizanalidram@gmail.com  
+- 📧 Email: faizanalidram@gmail.com  
 - 📱 WhatsApp: +49 15256046716  
-- 🔗 [LinkedIn](https://www.linkedin.com/in/faizan-ali-27197919b/)
+- 🔗 [LinkedIn Profile](https://www.linkedin.com/in/faizan-ali-27197919b/)
 """)
 
 st.markdown("---")
-st.caption("Crafted with Streamlit by Faizan Ali | Last Updated: 2025")
+st.caption("Developed by Faizan Ali | Streamlit Profile | Last updated: 2025")
