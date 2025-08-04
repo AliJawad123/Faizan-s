@@ -4,7 +4,7 @@ from PIL import Image
 # Page configuration
 st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔧", layout="centered")
 
-# Inject custom CSS for styling
+# Custom CSS for the page
 def set_custom_style():
     st.markdown("""
         <style>
@@ -16,22 +16,6 @@ def set_custom_style():
             }
             h1, h2, h3 {
                 color: #1a237e;
-            }
-            .profile-pic-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 1rem;
-            }
-            .contact-row {
-                text-align: center;
-                font-size: 15px;
-                color: #374151;
-                margin-bottom: 2rem;
-            }
-            .contact-row a {
-                color: #1a73e8;
-                text-decoration: none;
             }
             .title {
                 text-align: center;
@@ -45,20 +29,39 @@ def set_custom_style():
                 color: #374151;
                 margin-bottom: 1rem;
             }
+            .contact-row {
+                text-align: center;
+                font-size: 15px;
+                color: #374151;
+                margin-bottom: 2rem;
+            }
+            .contact-row a {
+                color: #1a73e8;
+                text-decoration: none;
+            }
+            .rounded-border {
+                border: 3px solid #1a237e;
+                border-radius: 12px;
+                padding: 6px;
+                background-color: white;
+                display: inline-block;
+            }
         </style>
     """, unsafe_allow_html=True)
 
 # Apply styles
 set_custom_style()
 
-# Display centered image with proper width
-st.markdown('<div class="profile-pic-container">', unsafe_allow_html=True)
+# Centered profile image with border using Streamlit columns
 try:
-    image = Image.open("assests/faizan.jpeg")
-    st.image(image, width=220, use_container_width=False)  # Corrected: no deprecated parameter
+    image = Image.open("assets/faizan.jpg")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.markdown('<div class="rounded-border">', unsafe_allow_html=True)
+        st.image(image, width=220, use_container_width=False)
+        st.markdown('</div>', unsafe_allow_html=True)
 except FileNotFoundError:
     st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Name and title
 st.markdown('<div class="title">Faizan Ali</div>', unsafe_allow_html=True)
@@ -73,6 +76,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+st.markdown("---")
 # About Me
 st.header("About Me")
 st.write("""
