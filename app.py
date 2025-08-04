@@ -61,7 +61,7 @@ set_custom_style()
 # Profile image section
 st.markdown('<div class="profile-pic-container">', unsafe_allow_html=True)
 try:
-    image = Image.open("assets/faizan.jpg")
+    image = Image.open("assests/faizan.jpeg")
     st.image(image, use_column_width=False, width=220)
 except FileNotFoundError:
     st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
