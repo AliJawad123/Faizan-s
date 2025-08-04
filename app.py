@@ -54,7 +54,7 @@ set_custom_style()
 # Display centered image with proper width
 st.markdown('<div class="profile-pic-container">', unsafe_allow_html=True)
 try:
-    image = Image.open("assets/faizan.jpg")
+    image = Image.open("assests/faizan.jpeg")
     st.image(image, width=220, use_container_width=False)  # Corrected: no deprecated parameter
 except FileNotFoundError:
     st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
