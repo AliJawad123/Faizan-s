@@ -33,7 +33,7 @@ set_bg()
 st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔩", layout="centered")
 
 # Profile image
-image = Image.open("assets/Capture.jpg")  # Replace with actual image
+image = Image.open("assets/Capture.JPG")  # Replace with actual image
 st.image(image, width=180)
 
 # Name and Title
