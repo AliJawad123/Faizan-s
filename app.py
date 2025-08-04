@@ -26,8 +26,8 @@ def set_custom_style():
             .profile-pic {
                 border: 3px solid #1a237e;
                 border-radius: 12px;
-                width: 220px;
-                height: auto;
+                width: 100px;
+                height: 100px;
                 object-fit: cover;
             }
             .title {
