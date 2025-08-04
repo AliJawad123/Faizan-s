@@ -1,9 +1,7 @@
 import streamlit as st
 from PIL import Image
-import base64
-import os
 
-# Page setup
+# Set page configuration
 st.set_page_config(page_title="Faizan Ali | Metallurgical Engineer", page_icon="🔧", layout="centered")
 
 # Apply custom CSS
@@ -23,61 +21,96 @@ def set_custom_style():
                 font-size: 17px;
                 line-height: 1.6;
             }
-            .profile-pic-container {
-                border: 3px solid #1a237e;
-                padding: 6px;
-                border-radius: 12px;
-                width: fit-content;
-                margin: auto;
+            .css-zt5igj {
+                font-size: 18px;
+                font-weight: 500;
             }
-            .contact-row {
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-                flex-wrap: wrap;
-                font-size: 16px;
-                color: #374151;
-                margin-top: -20px;
+            hr {
+                border-top: 1px solid #cbd5e1;
             }
         </style>
     """, unsafe_allow_html=True)
 
 set_custom_style()
 
-# Profile Image Section
+# Header: Profile Picture, Name, Title
 col1, col2 = st.columns([1, 3])
 with col1:
-    try:
-        image = Image.open("assests/faizan.jpeg")
-        st.markdown('<div class="profile-pic-container">', unsafe_allow_html=True)
-        st.image(image, width=180)
-        st.markdown('</div>', unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
-
+    image = Image.open("assests/faizan.jpeg")  # Ensure this image exists
+    st.image(image, width=180)
 with col2:
     st.title("Faizan Ali")
     st.subheader("Metallurgical Engineer | Materials Testing & Quality Control")
-
-# Aligned Contact Info
-st.markdown("""
-<div class="contact-row">
-    <div>📧 faizanalidram@gmail.com</div>
-    <div>📞 +49 15256046716</div>
-    <div>📍 Freiberg, Germany</div>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("📍 Freiberg, Germany | 📧 faizanalidram@gmail.com | 📞 +49 15256046716")
 
 st.markdown("---")
 
-# Sections continue...
+# About Me
 st.header("About Me")
 st.write("""
-I am a **Metallurgical Engineer** with academic training and international experience in **materials inspection**, **non-destructive testing (NDT)**, and **steelmaking processes**.
+I am a **dedicated Metallurgical Engineer** with academic training and international work experience in **materials inspection, NDT techniques, and steelmaking processes**.  
+Originating from **Hunza, Pakistan**, and currently pursuing a Master’s degree in **Metallic Materials Technology** in **Freiberg, Germany**, I focus on applying scientific principles to enhance material performance and process reliability in the metallurgical industry.
 
-Originating from **Hunza, Pakistan**, and currently based in **Freiberg, Germany**, I focus on applying scientific principles to improve material reliability and process efficiency in industrial settings.
-
-My interests include **thermodynamic modeling**, **structural analysis**, and contributing to safety-driven, quality-oriented engineering environments.
+My professional interest lies at the intersection of **material integrity, thermodynamic modeling**, and **process optimization**, and I am motivated to contribute to technically rigorous, safety-conscious, and quality-driven teams.
 """)
 
-# (Remaining content continues unchanged below: Education, Experience, Skills, Projects, etc.)
+# Education
+st.header("Education")
+st.markdown("""
+**M.Sc. Metallic Materials Technology**  
+📍 Technical University Bergakademie Freiberg, Germany (2021 – 2025)  
+*Thesis:* Measurement of Thermophysical Properties of EAF Slag  
+
+**B.E. Metallurgical Engineering**  
+📍 NED University of Engineering & Technology, Karachi, Pakistan (2015 – 2019)  
+*Thesis:* Optimization of FeO Reduction in EAF Slag for Steel Quality Improvement
+""")
+
+# Work Experience
+st.header("Professional Experience")
+st.markdown("""
+**Werkstudent – Ringoplast Leubsdorf GmbH** *(Jul 2024 – Sep 2024)*  
+**Intern – Helmholtz Institute Freiberg for Resource Technology** *(Feb 2024 – May 2024)*  
+**Werkstudent – Hitachi GmbH, Roßen, Germany** *(Aug 2022 – Nov 2022)*  
+**Trainee Engineer – NDT Premier Tubular Inspection Services, Karachi** *(Jan 2021 – Mar 2021)*
+""")
+
+# Technical Skills
+st.header("Technical Skills")
+st.markdown("""
+- **Material Testing & Inspection:** NDT, Visual/Ultrasonic Testing, Metallography  
+- **Process Modeling Tools:** FACTSAGE, HSC Chemistry, OriginLab  
+- **CAD & Design:** SolidWorks, AutoCAD, Solid Edge  
+- **Software Proficiency:** MS Office Suite, Report Documentation, Data Analysis  
+- **Metallurgical Knowledge:** Steelmaking, Thermodynamics, Corrosion Protection  
+- **Languages:** English (C1), German (B1), Urdu (Native)
+""")
+
+# Projects
+st.header("Projects & Research Work")
+st.markdown("""
+- **Thermophysical Modeling of EAF Slag:** Measured and modeled viscosity, surface tension, and density of slag at high temperatures using FACTSAGE and the Einstein-Roscoe equation.  
+- **Optimization of FeO Reduction:** Investigated refining techniques and chemical control methods to minimize FeO in slag and improve steel purity.  
+- **Casing Joint Inspections:** Performed ultrasonic and visual NDT inspections to ensure equipment reliability and safety.  
+- **Metals Recovery Analysis:** Contributed to simulations of metal extraction using thermodynamic software tools.
+""")
+
+# Certifications
+st.header("Certifications")
+st.markdown("""
+- Community Emergency Response Team (CERT)  
+- First Aid and Casualty Handling  
+- Fire Safety & Evacuation Procedures  
+- Occupational Health and Safety Training
+""")
+
+# Contact
+st.header("Contact & Links")
+st.markdown("""
+- 📧 Email: faizanalidram@gmail.com  
+- 📱 WhatsApp: +49 15256046716  
+- 🔗 [LinkedIn Profile](https://www.linkedin.com/in/faizan-ali-27197919b/)
+""")
+
+st.markdown("---")
+st.caption("Developed by Faizan Ali | Streamlit Profile | Last updated: 2025")
