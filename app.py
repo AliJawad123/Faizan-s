@@ -36,7 +36,7 @@ set_custom_style()
 # Header: Profile Picture, Name, Title
 col1, col2 = st.columns([1, 3])
 with col1:
-    image = Image.open("assets/faizan.jpeg")  # Ensure this image exists
+    image = Image.open("assests/faizan.jpeg")  # Ensure this image exists
     st.image(image, width=180)
 with col2:
     st.title("Faizan Ali")
