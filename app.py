@@ -58,14 +58,7 @@ def set_custom_style():
 # Apply styles
 set_custom_style()
 
-# Centered image using HTML+CSS
-try:
-    image = Image.open("assests/faizan.jpeg")
-    st.markdown('<div class="centered-container">', unsafe_allow_html=True)
-    st.image(image, width=220)
-    st.markdown('</div>', unsafe_allow_html=True)
-except FileNotFoundError:
-    st.warning("Profile image not found. Please place it in `assets/faizan.jpg`.")
+
 
 # Name and title
 st.markdown('<div class="title">Faizan Ali</div>', unsafe_allow_html=True)
